@@ -171,7 +171,7 @@ python main_PPI.py --model_type QSIGN --centrality EC --num_epoch 1000 --node_bu
 ```
 Note that the results of the run will be appended to results.csv file (will automatically be created if it doesn't exists) in a tabular manner.
 ## Executing FALCON-ClusterGCN
-To run the C-ClusterGCN experiment, the user must first go to this directory: FALCON/OtherBenchmarks/Cluster-GCN/cluster_gcn
+To run the FALCON-ClusterGCN experiment, the user must first go to this directory: FALCON/OtherBenchmarks/Cluster-GCN/cluster_gcn
 Next, the user can reproduce the benchmarks using the following script:
 ```
 ./run_clusterGCN_benchmark.sh
