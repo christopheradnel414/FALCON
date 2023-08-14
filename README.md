@@ -49,7 +49,7 @@ Note that we are using CUDA 11.8 toolkit paired with an NVIDIA RTX 3050ti GPU wi
 
 # Setup
 Note that these instructions are written for Linux (Ubuntu 22.04 LTS) with NVIDIA driver version 525.125.06.
-## CQSIGN Directory Setup
+## FALCON Directory Setup
 1. To setup the main FALCON directory, user is recommended to create a new Python 3.9.16 virtual environment using [conda](https://conda.io/projects/conda/en/latest/index.html).
 3. Install NVIDIA CUDA 11.8 toolkit from [here](https://developer.nvidia.com/cuda-11-8-0-download-archive). Depending on the user's NVIDIA driver version, different version of CUDA toolkit might be necessary.
 4. Add the newly installed CUDA toolkit directory to bashrc by adding these lines to ~/.bashrc file:
@@ -82,12 +82,12 @@ pip install -v -e .
 ```
 ## Cluster-GCN Directory Setup
 1. User is recommended to create a new Python 3.9.16 virtual environment for the Cluster-GCN dependencies.
-2. Go to CQSIGN/OtherBenchmarks/Cluster-GCN/GKlib and install [GKlib](https://github.com/KarypisLab/GKlib) by executing the following script:
+2. Go to FALCON/OtherBenchmarks/Cluster-GCN/GKlib and install [GKlib](https://github.com/KarypisLab/GKlib) by executing the following script:
 ```
 make
 make install
 ```
-3. CQSIGN/OtherBenchmarks/Cluster-GCN/METIS and install [METIS](https://github.com/KarypisLab/METIS) by executing the following script:
+3. FALCON/OtherBenchmarks/Cluster-GCN/METIS and install [METIS](https://github.com/KarypisLab/METIS) by executing the following script:
 ```
 sudo apt-get install build-essential
 sudo apt-get install cmake
@@ -113,14 +113,14 @@ pip install scipy==1.10.1
 pip install setuptools
 ```
 ## GNN AutoScale (GAS) Directory Setup
-1. Here, user can reuse the same conda environment as the main CQSIGN directory as there are no conflicting dependencies with GNN AutoScale.
+1. Here, user can reuse the same conda environment as the main FALCON directory as there are no conflicting dependencies with GNN AutoScale.
 2. Install METIS from step 2, 3, 4, and 5 of Cluster-GCN Directory Setup if not done before.
 3. Install remaining dependancies using pip:
 ```
 pip install hydra-core==1.3.2
 pip install setuptools
 ```
-4. Go to CQSIGN/OtherBenchmarks/GNNAutoScale/pyg_autoscale and compile the C++ files using the following script:
+4. Go to FALCON/OtherBenchmarks/GNNAutoScale/pyg_autoscale and compile the C++ files using the following script:
 ```
 python setup.py install
 ```
@@ -132,7 +132,7 @@ In this work, we are mainly working with 4 datasets ([PPI](https://pytorch-geome
 ```
 ./generate_organ.sh
 ```
-Additionally, we also work with Cora and PubMed datasets for the comparison with the [graph coarsening](https://github.com/szzhang17/Scaling-Up-Graph-Neural-Networks-Via-Graph-Coarsening) method. Both Cora and PubMed datasets are also included in the installed torch-geometric module, hence, it will also be automatically downloaded when we run the respective benchmarks.
+Additionally, we also work with [Cora](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html) and [PubMed](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Planetoid.html) datasets for the comparison with the [graph coarsening](https://github.com/szzhang17/Scaling-Up-Graph-Neural-Networks-Via-Graph-Coarsening) method. Both Cora and PubMed datasets are also included in the installed torch-geometric module, hence, it will also be automatically downloaded when we run the respective benchmarks.
 
 ## Pre-processing for ClusterGCN and GNN AutoScale
 As mentioned in the introduction, both included ClusterGCN and GNN AutoScale package takes the pre-processed contracted graph dataset as input. Hence, we need to generate these contracted graphs using the following script:
@@ -169,14 +169,14 @@ python main_PPI.py --model_type QSIGN --centrality EC --num_epoch 1000 --node_bu
 ```
 Note that the results of the run will be appended to results.csv file (will automatically be created if it doesn't exists) in a tabular manner.
 ## Executing C-ClusterGCN
-To run the C-ClusterGCN experiment, the user must first go to this directory: CQSIGN/OtherBenchmarks/Cluster-GCN/cluster_gcn
+To run the C-ClusterGCN experiment, the user must first go to this directory: FALCON/OtherBenchmarks/Cluster-GCN/cluster_gcn
 Next, the user can reproduce the benchmarks using the following script:
 ```
 ./run_clusterGCN_benchmark.sh
 ```
 Note that the results of the run will be appended to results.csv file (will automatically be created if it doesn't exists) in a tabular manner.
 ## Executing C-GAS (GNN AutoScale)
-To run the C-GAS experiment, the user must first go to this directory: CQSIGN/OtherBenchmarks/GNNAutoScale/pyg_autoscale/large_benchmark
+To run the C-GAS experiment, the user must first go to this directory: FALCON/OtherBenchmarks/GNNAutoScale/pyg_autoscale/large_benchmark
 Next, the user can reproduce the benchmarks using the following script:
 ```
 ./run_GAS_benchmark.sh
