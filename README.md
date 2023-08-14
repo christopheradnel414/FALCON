@@ -141,14 +141,14 @@ As mentioned in the introduction, both included ClusterGCN and GNN AutoScale pac
 ./run_generate_contracted_data_GNNAutoScale.sh
 ```
 
-## Executing C-QSIGN, C-SIGN, and C-GCN
-To reproduce the experiments for C-QSIGN, C-SIGN, and C-GCN, the user can run the following script:
+## Executing main benchmarks for FALCON-QSIGN, FALCON-SIGN, and FALCON-GCN
+To reproduce the experiments for FALCON-QSIGN, FALCON-SIGN, and FALCON-GCN, the user can run the following script:
 ```
 ./run_main_benchmark_GCN_SIGN_QSIGN.sh
 ```
 To manually run the experiment with user defined parameters, the user can use the following command:
 ```
-python main_{dataset name}.py --model_type {model name} --centrality {centrality type} --num_epoch {number of epoch} --node_budget {node budget} --max_hop {SIGN maximum hop} --layers {number of layers} --dropout {dropout} --batch_norm {batch normalization} --lr {learning rate} --num_batch {number of mini-batches}
+python main_{dataset name}.py --model_type {model name} --centrality {centrality type} --num_epoch {number of epoch} --node_budget {node budget} --max_hop {SIGN maximum hop} --layers {number of layers} --dropout {dropout} --batch_norm {batch normalization} --lr {learning rate} --num_batch {number of mini-batches} --N_cluster {FALCON clusters} --gamma {gamma}
 ```
 By setting the parameters as follows:
 - {dataset name}: a choice between PPI, OrganC, and OrganS
@@ -162,10 +162,12 @@ By setting the parameters as follows:
 - {batch normalization}: boolean denoting whether or not to use batch normalization (True: use batchnorm, False: do not use batchnorm)
 - {learning rate}: float denoting the learning rate
 - {number of mini-batches}: integer denoting the number of mini-batches for the training
+- {FALCON clusters}: integer denoting the number of FALCON clusters (feature-label clusters)
+- {gamma}: float denoting the prioritization of features or labels (1: only features, 0: only labels, and 0.5: prioritize both equally)
 
 Example: 
 ```
-python main_PPI.py --model_type QSIGN --centrality EC --num_epoch 1000 --node_budget 15000 --max_hop 3 --layers 3 --dropout 0.2 --batch_norm True --lr 0.0005 --num_batch 10
+python main_PPI.py --model_type QSIGN --centrality EC --num_epoch 1000 --node_budget 15000 --max_hop 3 --layers 3 --dropout 0.2 --batch_norm True --lr 0.0005 --num_batch 10 --N_cluster 100 --gamma 0.52
 ```
 Note that the results of the run will be appended to results.csv file (will automatically be created if it doesn't exists) in a tabular manner.
 ## Executing C-ClusterGCN
