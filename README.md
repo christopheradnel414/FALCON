@@ -50,7 +50,7 @@ Note that we are using CUDA 11.8 toolkit paired with an NVIDIA RTX 3050ti GPU wi
 # Setup
 Note that these instructions are written for Linux (Ubuntu 22.04 LTS) with NVIDIA driver version 525.125.06.
 ## CQSIGN Directory Setup
-1. To setup the main CQSIGN directory, user is recommended to create a new Python 3.9.16 virtual environment using [conda](https://conda.io/projects/conda/en/latest/index.html).
+1. To setup the main FALCON directory, user is recommended to create a new Python 3.9.16 virtual environment using [conda](https://conda.io/projects/conda/en/latest/index.html).
 3. Install NVIDIA CUDA 11.8 toolkit from [here](https://developer.nvidia.com/cuda-11-8-0-download-archive). Depending on the user's NVIDIA driver version, different version of CUDA toolkit might be necessary.
 4. Add the newly installed CUDA toolkit directory to bashrc by adding these lines to ~/.bashrc file:
 ```
@@ -74,6 +74,7 @@ pip install numpy==1.24.1
 pip install networkx==3.0
 pip install scikit-learn==1.2.2
 pip install scipy==1.10.1
+pip install pygsp==0.5.1
 ```
 5. Install ActNN quantization package by going to ActNN folder and running the following script in cli:
 ```
@@ -127,10 +128,11 @@ python setup.py install
 # Executing Benchmarks
 
 ## Preparing Dataset
-In this work, we are using 3 main datasets ([PPI](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.PPI.html), [MedMNIST Organ-C](https://medmnist.com/), and [MedMNIST Organ-S](https://medmnist.com/)). PPI dataset will be automatically downloaded from the installed torch-geometric module when we run the benchmarks, while Organ-C & S datasets are included in this github repository. However, since Organ-C & S are originally an image dataset, we included a pre-processing script to convert the image to graph based on their vectorized pixel intensities and between sample cosine similarity. Before initial run of the code, user needs to run the Organ pre-processing script as follows:
+In this work, we are mainly working with 4 datasets ([PPI](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.PPI.html), [MedMNIST Organ-C](https://medmnist.com/), [MedMNIST Organ-S](https://medmnist.com/), and [Flickr](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.Flickr.html)). PPI and Flickr datasets will be automatically downloaded from the installed torch-geometric module when we run the benchmarks, while Organ-C & S datasets are included in this github repository. However, since Organ-C & S are originally an image dataset, we included a pre-processing script to convert the image to graph based on their vectorized pixel intensities and between sample cosine similarity. Before initial run of the code, user needs to run the Organ pre-processing script as follows:
 ```
 ./generate_organ.sh
 ```
+Additionally, we also work with Cora and PubMed datasets for the comparison with the [graph coarsening](https://github.com/szzhang17/Scaling-Up-Graph-Neural-Networks-Via-Graph-Coarsening) method. Both Cora and PubMed datasets are also included in the installed torch-geometric module, hence, it will also be automatically downloaded when we run the respective benchmarks.
 
 ## Pre-processing for ClusterGCN and GNN AutoScale
 As mentioned in the introduction, both included ClusterGCN and GNN AutoScale package takes the pre-processed contracted graph dataset as input. Hence, we need to generate these contracted graphs using the following script:
