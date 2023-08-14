@@ -1,4 +1,4 @@
-# FALCON:
+# FALCON: Feature-Label Constrained Graph Net Collapse for Memory Efficient GNN
 This repository is part of [AAAI 2024](https://aaai.org/aaai-conference/) submitted paper titled "FALCON: Feature-Label Constrained Graph Net Collapse for Memory Efficient GNN" (Paper ID: 6715) . This repository contains the main source code for our proposed FALCON method along with its implementation on various memory-efficient GNN models (e.g., [SIGN](https://arxiv.org/abs/2004.11198), GCN, [Cluster-GCN](https://github.com/google-research/google-research/tree/master/cluster_gcn), and [GNN AutoScale](https://github.com/rusty1s/pyg_autoscale)). Additionally, we also include an implementation of QSIGN which quantizes the MLP layers in SIGN model using activation quantization by [ActNN](https://github.com/ucbrise/actnn).
 
 Since some of the included GNN models have conflicting version of dependencies (e.g., different version of NetworkX), this repository is organized as follows:
