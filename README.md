@@ -1,14 +1,14 @@
 # FALCON: Feature-Label Constrained Graph Net Collapse for Memory Efficient GNN
-This repository is part of [AAAI 2024](https://aaai.org/aaai-conference/) submitted paper titled "FALCON: Feature-Label Constrained Graph Net Collapse for Memory Efficient GNN" (Paper ID: 6715) . This repository contains the main source code for our proposed FALCON method along with its implementation on various memory-efficient GNN models (e.g., [SIGN](https://arxiv.org/abs/2004.11198), GCN, [Cluster-GCN](https://github.com/google-research/google-research/tree/master/cluster_gcn), and [GNN AutoScale](https://github.com/rusty1s/pyg_autoscale)). Additionally, we also include an implementation of QSIGN which quantizes the MLP layers in SIGN model using activation quantization by [ActNN](https://github.com/ucbrise/actnn).
+This repository is part of [AAAI 2024](https://aaai.org/aaai-conference/) submitted paper titled "FALCON: Feature-Label Constrained Graph Net Collapse for Memory Efficient GNN" (Paper ID: 6715) . This repository contains the main source code for our proposed FALCON method along with its implementation on various memory-efficient GNN models (e.g., [SIGN](https://arxiv.org/abs/2004.11198), GCN, [Cluster-GCN](https://github.com/google-research/google-research/tree/master/cluster_gcn), and [GNN AutoScale](https://github.com/rusty1s/pyg_autoscale)). We also include an implementation of QSIGN which quantizes the MLP layers in SIGN model using activation quantization by [ActNN](https://github.com/ucbrise/actnn). Additionally, the graph coarsening method for memory-efficient GNN ([Huang et al., 2021](https://github.com/szzhang17/Scaling-Up-Graph-Neural-Networks-Via-Graph-Coarsening)) is also included in this repository for benchmark purposes.
 
 Since some of the included GNN models have conflicting version of dependencies (e.g., different version of NetworkX), this repository is organized as follows:
 
 <img width="600" alt="Screenshot 2023-08-14 at 13 27 25" src="https://github.com/christopheradnel414/FALCON/assets/41734037/58448eb7-64de-4512-b05c-3b66158dc4a3">
 
-The main directory of FALCON consists of our proposed feature-label preserving graph collapse (FALCON) and its implementation on GCN, SIGN, and QSIGN models (including the [ActNN](https://github.com/ucbrise/actnn) quantization package). Additionally, the main directory also has 2 data generator scripts which generates contracted graphs of our datasets (e.g., PPI, Organ-C, and Organ-S) in a format that is readable to [Cluster-GCN](https://github.com/google-research/google-research/tree/master/cluster_gcn) and [GNN AutoScale (GAS)](https://github.com/rusty1s/pyg_autoscale). Hence, once the graph has been contracted, the included Cluster-GCN and GAS models can be executed with their respective original dependency, independent of our graph contraction module.
+The main directory of FALCON consists of our proposed feature-label preserving graph collapse (FALCON) and its implementation on GCN, SIGN, and QSIGN models (including the [ActNN](https://github.com/ucbrise/actnn) quantization package). Additionally, the main directory also has 2 data generator scripts which generates contracted graphs of our datasets (e.g., PPI, Organ-C, Organ-S, and Flickr) in a format that is readable to [Cluster-GCN](https://github.com/google-research/google-research/tree/master/cluster_gcn) and [GNN AutoScale (GAS)](https://github.com/rusty1s/pyg_autoscale). Hence, once the graph has been contracted, the included Cluster-GCN and GAS models can be executed with their respective original dependency, independent of our graph contraction module.
 
 # Dependencies
-Here, we have 3 different sets of package dependencies for the main CQSIGN directory (includes C-QSIGN, C-SIGN, C-GCN), Cluster-GCN directory, and GNN AutoScale directory, respectively. For the CQSIGN directory, we worked the following dependencies:
+Here, we have 3 different sets of package dependencies for the main FALCON directory (includes FALCON, GCN, SIGN, and QSIGN), Cluster-GCN directory, and GNN AutoScale directory, respectively. For the main FALCON directory, we worked the following dependencies:
 ```
 torch-scatter==2.1.1+pt20cu118
 torch-sparse==0.6.17+pt20cu118
@@ -20,6 +20,7 @@ numpy==1.24.1
 networkx==3.0
 scikit-learn==1.2.2
 scipy==1.10.1
+pygsp==0.5.1
 ```
 Next, for the included Cluster-GCN package, we worked with the following dependencies:
 ```
