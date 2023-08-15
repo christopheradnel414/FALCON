@@ -3,7 +3,7 @@ This repository is part of [AAAI 2024](https://aaai.org/aaai-conference/) submit
 
 Since some of the included GNN models have conflicting version of dependencies (e.g., different version of NetworkX), this repository is organized as follows:
 
-<img width="600" alt="Screenshot 2023-08-14 at 13 27 25" src="https://github.com/christopheradnel414/FALCON/assets/41734037/58448eb7-64de-4512-b05c-3b66158dc4a3">
+<img width="600" alt="Screenshot 2023-08-15 at 23 52 27" src="https://github.com/christopheradnel414/FALCON/assets/41734037/a184d5fe-7adc-4cda-b53a-da7cf2736ad1">
 
 The main directory of FALCON consists of our proposed feature-label preserving graph collapse (FALCON) and its implementation on GCN, SIGN, and QSIGN models (including the [ActNN](https://github.com/ucbrise/actnn) quantization package). We also included the graph coarsening algorithm in the main FALCON directory to serve as direct benchmark to FALCON. Additionally, the main directory also has 2 data generator scripts which generates collapsed graphs of our datasets (e.g., PPI, Organ-C, Organ-S, and Flickr) in a format that is readable to [Cluster-GCN](https://github.com/google-research/google-research/tree/master/cluster_gcn) and [GNN AutoScale (GAS)](https://github.com/rusty1s/pyg_autoscale). Hence, once the graph has been collapsed, the included Cluster-GCN and GAS models can be executed with their respective original dependency, independent of our FALCON module.
 
