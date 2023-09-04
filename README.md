@@ -82,12 +82,12 @@ pip install -v -e .
 ```
 ## Cluster-GCN Directory Setup
 1. User is recommended to create a new Python 3.9.16 virtual environment for the Cluster-GCN dependencies.
-2. Go to FALCON/OtherBenchmarks/Cluster-GCN/GKlib and install [GKlib](https://github.com/KarypisLab/GKlib) by executing the following script:
+2. Go to FALCON/OtherBenchmarks/Cluster-GCN/GKlib directory and install [GKlib](https://github.com/KarypisLab/GKlib) by executing the following script:
 ```
 make
 make install
 ```
-3. FALCON/OtherBenchmarks/Cluster-GCN/METIS and install [METIS](https://github.com/KarypisLab/METIS) by executing the following script:
+3. Go to FALCON/OtherBenchmarks/Cluster-GCN/METIS directory and install [METIS](https://github.com/KarypisLab/METIS) by executing the following script:
 ```
 sudo apt-get install build-essential
 sudo apt-get install cmake
