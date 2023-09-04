@@ -114,7 +114,7 @@ pip install setuptools
 ```
 ## GNN AutoScale (GAS) Directory Setup
 1. Here, user can reuse the same conda environment as the main FALCON directory as there are no conflicting dependencies with GNN AutoScale.
-2. Install METIS on the current environment based on step 2, 3, 4, and 5 of Cluster-GCN Directory Setup if not done before.
+2. Install METIS on the current environment based on step 2-5 of Cluster-GCN Directory Setup if not done before.
 3. Install remaining dependancies using pip:
 ```
 pip install hydra-core==1.3.2
