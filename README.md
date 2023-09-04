@@ -51,8 +51,8 @@ Note that we are using CUDA 11.8 toolkit paired with an NVIDIA RTX 3050ti GPU wi
 Note that these instructions are written for Linux (Ubuntu 22.04 LTS) with NVIDIA driver version 525.125.06.
 ## FALCON Directory Setup
 1. To setup the main FALCON directory, user is recommended to create a new Python 3.9.16 virtual environment using [conda](https://conda.io/projects/conda/en/latest/index.html).
-3. Install NVIDIA CUDA 11.8 toolkit from [here](https://developer.nvidia.com/cuda-11-8-0-download-archive). Depending on the user's NVIDIA driver version, different version of CUDA toolkit might be necessary.
-4. Add the newly installed CUDA toolkit directory to bashrc by adding these lines to ~/.bashrc file:
+2. Install NVIDIA CUDA 11.8 toolkit from [here](https://developer.nvidia.com/cuda-11-8-0-download-archive). Depending on the user's NVIDIA driver version, different version of CUDA toolkit might be necessary.
+3. Add the newly installed CUDA toolkit directory to bashrc by adding these lines to ~/.bashrc file:
 ```
 # CUDA Toolkit 11.8
 if [ -z $LD_LIBRARY_PATH ]; then
