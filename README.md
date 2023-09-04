@@ -120,7 +120,7 @@ pip install setuptools
 pip install hydra-core==1.3.2
 pip install setuptools
 ```
-4. Go to FALCON/OtherBenchmarks/GNNAutoScale/pyg_autoscale and compile the C++ files using the following script:
+4. Go to FALCON/OtherBenchmarks/GNNAutoScale/pyg_autoscale directory and compile the C++ files using the following script:
 ```
 python setup.py install
 ```
