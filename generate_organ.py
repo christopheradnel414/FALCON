@@ -9,7 +9,7 @@ Created on Wed Jul 19 00:44:09 2023
 import numpy as np
 from sklearn import metrics as sk
 
-views = ['c']
+views = ['c','s']
 
 for view in views:
     
